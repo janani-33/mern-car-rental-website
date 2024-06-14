@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DrEam CaRs ADMIN</title>
+</head>
+<body>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .adminheader{
+        width: 100%;
+        background: url("images/carbg4.jpg");
+        background-position: center;
+        background-size: cover;
+        height: 109vh;
+        animation: infiniteScrollBg 50s linear infinite;
+    }
+    .navbar{
+        width: 100%;
+        height: auto;
+        padding: 4px 170px 8px 150px;
+        background-color: #dededeab;
+        position: fixed;
+        z-index: 1;
+    }
+    .navbar .icon{
+        width:200px;
+        float: left;
+    }
+    .add{
+        padding: 10px 20px;
+        background: #d27fd4;
+        border:none;
+        font-size: 18px;
+        border-radius: 5px;
+        cursor: pointer;
+        color:#fff;
+        transition: 0.4s ease;
+        margin: 30px 50px 10px 1200px;
+        border: 1px solid #000000;
+    }
+    .logo{
+        color: #000000b0;
+        font-size: 29px;
+        font-family: Arial;
+        float:left;
+        padding-top: 5px;
+    }
+    .menu{
+        float: left;
+    }
+    .menu ul{
+        float: left;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 20px;
+    }
+    .menu ul li{
+        list-style: none;
+        margin: 10px 0 0 80px;
+        font-size: 15px;
+        letter-spacing: 1px;
+
+    }
+    .menu ul li a{
+        text-decoration: none;
+        color: #000000;
+        font-family: Arial;
+        transition: 0.4s ease-in-out;
+    }
+    .menu ul li a::after {
+        content: '';
+        display: block;
+        background-color: #028482;
+        height: 1.5px;
+        margin: 1px 1px 0 1px;
+        transform: scaleX(0);
+        transition: transform 300ms;
+    }
+    .menu ul li a:hover::after {
+        transform: scaleX(1);
+    }
+    .menu ul li i{
+        padding: 1px;
+        color: #292929;
+    }
+    .menu ul li .active{
+        color: #028482;
+    }
+    .navbtn{
+        border:none;
+        font-size: 17px;
+        cursor: pointer;
+        background-color: #028482;
+        transition: 0.4s ease;
+        padding: 5px 10px 2px 10px;
+        margin-top: -2px;
+    }
+    .navbtn a{
+        text-decoration: none;
+    }
+    .menu ul li button a{
+        color: #fff;
+    }
+    .navbtn:hover{
+        background-color: #258b8d;
+    }
+    .navbtn a:hover{
+        color: #000000;
+        transition: 0.1s ease-in-out;
+    }
+    .content-table{
+        border-collapse: collapse;
+        font-size: 0.9em;  
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+        box-shadow:0 0  20px rgba(0,0,0,0.15);
+        margin-left : 350px ;
+        margin-top: 35px;
+        width: 800px;
+    }
+    .content-table thead tr{
+        background-color: #028482;
+        color: white;
+        text-align: left;
+    }
+    .content-table th{
+        padding: 12px 15px;
+        text-align: center;
+    }
+    .content-table td{
+        padding: 20px 15px;
+        text-align: center;
+    }
+    .content-table tbody tr{
+        border-bottom: 1px solid #dddddd;
+        font-size: 16px;
+    }
+    .content-table tbody tr:nth-of-type(even){
+        background-color: #f3f3f3;
+    }
+    .content-table tbody tr:nth-of-type(odd){
+        background-color: #aaaaaae1;
+    }
+    .content-table tbody tr:last-of-type{
+        border-bottom: 2px solid #028482;
+    }
+    .content-table thead .active-row{
+        font-weight:  bold;
+        color: #028482;
+    }
+    .feed{
+        padding-top: 100px;
+    }
+    .header{
+        text-align: center;
+        color: #000000;
+        text-shadow: 2px 2px 4px #fff;
+    }
+</style>
+<div class="adminheader">
+    <div class="navbar">
+        <div class="icon">
+            <h2 class="logo">DrEam CaRs</h2>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="/adminvehicle">VEHICLE MANAGEMENT</a></li>
+                    <li><a href="/adminusers">USERS</a></li>
+                    <li><a class="active" href="/adminfeed">FEEDBACKS</a></li>                    
+                    <li><a href="/adminbook">BOOKING REQUEST</a></li>
+              <li> <button class="navbtn"><a href="index.html">LOGOUT</a></button></li>
+            </ul>
+        </div>   
+    </div>
+    <div class="feed">
+        <h1 class="header">FEEDBACKS</h1>
+        <div>
+            <div>
+                <table class="content-table">
+            <thead>
+                <tr>
+                    <th>FEEDBACK_ID</th> 
+                    <th>EMAIL</th>
+                    <th>COMMENT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%feedback.forEach((x)=>{%>
+                <tr  class="active-row">
+                    <td><%= x.feed_id %></td>
+                    <td><%= x.email %></td>
+                    <td><%= x.msg %></td>
+                </tr>
+                <%feedback})%>
+            </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

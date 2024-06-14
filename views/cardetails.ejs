@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>DrEam CaRs USERS</title>   
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: url("images/carbg2.jpg");
+            min-block-size: calc(100vh + 85px);
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        .overview{
+            padding-top: 100px;
+        }
+        .box{ 
+            position:center;
+            top: 50%;
+            left: 50%;
+            padding: 20px 40px;
+            box-sizing: border-box;
+            background: #fff;
+            border-radius: 4px;
+            box-shadow: 0 5px 15px rgba(0,0,0,.5);
+            background: linear-gradient(to top, rgba(255, 251, 251, 0.8)50%,rgba(250, 246, 246, 0.8)50%);
+            display: flex;
+            align-content: center;
+            margin-top: 50px;
+            margin-left: 420px;
+            margin-bottom: 30px;
+        }
+        .box .imgBx{
+            width: 170px;
+            flex:0 0 150px;
+            padding: 20px 0;
+        }
+
+        .box .imgBx img{
+            max-width: 170%;
+        }
+
+        .box .content{
+            padding-left: 180px;
+            text-align: center;
+        }
+        .content h1{
+            font-size: 26px;
+            margin-bottom: 15px;
+            color: orangered;
+        }
+        .content h3{
+            text-align: left;
+            font-size: 19px;
+            margin-bottom: 2px;
+            font-family:Verdana;
+            font-weight: 100;
+        }
+        .box .button{
+            padding: 6px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #028482;
+            border: 1px solid #000;
+        }
+        .button a{
+            text-decoration: none;
+            color: #fff;
+        }
+        .de{
+            float: left;
+            clear: left;
+            display: block;
+        }
+        .de li a:hover{
+            color:black;
+        }
+        .de .lis:hover{
+            color: white;
+        }
+        .overview{
+            text-align: center;
+        }
+        .circle{
+            border-radius:48%;
+            width:65px;
+        }
+        .phello{
+            width: 200px;
+            margin-left: -50px;
+            padding: 0px;
+        }
+        #stat{
+            margin-left: -8px;
+        }
+        .phello{
+            width: 200px;
+            margin-left: -50px;
+            padding: 0px;
+        }
+        #stat{
+            margin-left: -8px;
+        }
+        .navbar{
+            width: 100%;
+            height: auto;
+            padding: 4px 70px 8px 50px;
+            background-color: #dededeab;
+            position: fixed;
+            z-index: 1;
+        }
+        .navbar .icon{
+            width:200px;
+            float: left;
+        }
+        .add{
+            padding: 10px 20px;
+            background: #d27fd4;
+            border:none;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            color:#fff;
+            transition: 0.4s ease;
+            margin: 30px 50px 10px 1200px;
+            border: 1px solid #000000;
+        }
+        .logo{
+            color: #000000b0;
+            font-size: 29px;
+            font-family: Arial;
+            float:left;
+            padding-top: 5px;
+        }
+        .menu{
+            float: left;
+        }
+        .menu ul{
+            float: left;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+        .menu ul li{
+            list-style: none;
+            margin: 10px 0 0 80px;
+            font-size: 15px;
+            letter-spacing: 1px;
+        }
+        .menu ul li a{
+            text-decoration: none;
+            color: #000000;
+            font-family: Arial;
+            transition: 0.4s ease-in-out;
+        }
+        .menu ul li a::after {
+            content: '';
+            display: block;
+            background-color: #028482;
+            height: 1.5px;
+            margin: 1px 1px 0 1px;
+            transform: scaleX(0);
+            transition: transform 300ms;
+        }
+        .menu ul li a:hover::after {
+            transform: scaleX(1);
+        }
+        .menu ul li i{
+            padding: 1px;
+            color: #292929;
+        }
+        .menu ul li .active{
+            color: #028482;
+        }
+        .menu p{
+            padding: 5px 0 0 80px;
+            font-size: 18px;
+        }
+        .navbtn{
+            border:none;
+            font-size: 17px;
+            cursor: pointer;
+            background-color: #028482;
+            transition: 0.4s ease;
+            padding: 5px 10px 2px 10px;
+            margin: -2px 20px 0 -30px;
+        }
+        .navbtn:hover{
+            color: #000000;
+            background-color: #258b8d;
+        }
+        .navbtn a:hover{
+            color: #fff;
+        }
+        .navbtn a{
+            text-decoration: none;
+        }
+        .modal{
+            display: none;
+            position: fixed;
+            z-index: 8;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-content{
+            margin: 150px auto;
+            width: 35%;
+        }
+        .modal-content-regform{
+            margin: 100px auto;
+            width: 38%;
+        }
+        .contact-form  .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .contact-form  .close:hover,
+        .contact-form .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .formcontent{
+            position: absolute;
+            width: 50%;
+            text-align: center;
+            left: 62%;
+            top: 90px;
+        }
+        .formcontent h1{
+            font-size: 46px;
+            color: #ccffcc;
+            text-shadow: 2px 2px 4px #000000;
+            padding: 40px 0 0 0;
+        }
+        .formcontent h2{
+            font-size: 38px;
+            color: #fff;
+            text-shadow: 2px 2px 4px #000000;
+        }
+        .formcontent h3{
+            font-size: 30px;
+        }
+        .formcontent .headpar a{
+            text-decoration: none;
+            background-color: #217C7E;
+            color: #fff;
+            border:#000000;
+            border-radius: 1px;
+            margin: 10px 0 20px 0;
+            padding: 10px 20px;
+        }
+        .formcontent .headpar a:hover{
+            background-color: #258b8d;
+            color: #272626;    
+        }
+        .contact-form form{
+            text-align: center;
+            padding: 25px;
+            margin: 25px;
+            box-shadow: 0 2px 5px #f5f5f5;
+            background: #eee;
+        }
+        .contact-form form i{
+            padding: 10px 20px 10px 10px;
+        }
+        .contact-form form h2{
+            font-family: sans-serif;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .contact-form form input[type=email]
+        ,.contact-form form input[type=password],
+        .contact-form form input[type=text],
+        .contact-form form input[type=tel]{
+            width: 300px;
+            height: 35px;
+            background: transparent;
+            color:rgb(0, 0, 0)010;
+            font-size: 15px;
+            letter-spacing: 1px;
+            margin: 20px 0 0 0px;
+            font-family: sans-serif;
+            padding: 0 10px;
+            outline: none;
+            border: 1px solid #aaa;
+        }
+        textarea{
+            width: 300px;
+            background: transparent;
+            color:rgb(0, 0, 0)010;
+            font-size: 15px;
+            letter-spacing: 1px;
+            margin: 20px 0 0 0px;
+            font-family: sans-serif;
+            padding: 10px 10px;
+            outline: none;
+            border: 1px solid #aaa;
+        }
+        .contact-form form input:focus{
+            outline: none;
+        }
+        ::placeholder{
+            color:#000000;
+            font-family: Arial;
+            font-size: 14px;
+        }
+        .btnn{
+            font-size: 18px;   
+            cursor: pointer;
+            color:#fff;
+            text-decoration: none;
+            background-color: #217C7E;
+            padding: 10px 20px;
+            margin: 30px 20px 10px 20px;
+            border: #fff;
+            transition: 0.4s ease;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .btnn:hover{
+            background-color: #258b8d;
+            color: #272626;    
+        }
+        .btnn a{
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body class="body">
+    <div class="cd">
+        <div class="main">
+            <div class="navbar">
+                <div class="icon">
+                    <h2 class="logo">DrEam CaRs</h2>
+                </div>
+                <div class="menu">              
+                    <ul>
+                        <li><a class="active" href="/cardetails">HOME</a></li>
+                        <li><a href="/aboutus2">ABOUT</a></li>                    
+                        <li><a href="/contactus2">CONTACT</a></li>
+                        <li><a href="#" class="button" data-modal="Feedbackmodal">FEEDBACK</a></li>
+                        <li><a id="stat" href="/bookingstatus">BOOKING STATUS</a></li>
+                        <li><button class="navbtn"><a href="index.html">LOGOUT</a></button></li>
+                        <p class="phello">WELCOME <b><%= user.firstname+" "+user.lastname %></b> !</p>
+                    </ul>
+                </div>   
+            </div>
+            <div id="Feedbackmodal" class="modal">
+                <div class="modal-content">
+                    <div class="contact-form">
+                        <a class="close">&times;</a>
+                        <form action="/carfeedback" method="POST">
+                            <h2><i style="padding: 0 10px 0 0;" class="fa-solid fa-comments"></i>Feedback</h2>
+                            <input class="h" type="text" name="name" placeholder="Enter Name"><br>
+                            <textarea rows="10" placeholder="Enter your message" name="feedmsg"></textarea><br>
+                            <input type="submit" class="btnn" value="SEND" name="adlog" >
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div><h1 class="overview">OUR CARS OVERVIEW</h1>
+                <ul class="de">
+                    <%cars.forEach((x)=>{%>
+                    <li>
+                        <form method="POST">
+                            <div class="box">
+                                <div class="imgBx">
+                                    <img src= <%= x.src %> >
+                                </div>
+                                <div class="content">
+                                    <h1><%= x.car_name %></h1>
+                                    <h3>Fuel Type : <%= x.fuel_type %></a> </h3>
+                                    <h3>Capacity : <%= x.capacity %></h3>
+                                    <h3>Available : <%= x.available %></a> </h3>
+                                    <h3>Rent Per Day : <%= x.price %></h3><br>
+                                    <button type="submit"  name="booknow" class="button" style="margin-top: 5px;"><a href="/booking">Book</a></button>
+                                </div>
+                            </div>
+                        </form>
+                    </li>
+                    <%cars})%>
+                </ul>
+            </div>
+        </div>
+    </div>     
+    <script>
+        let modalBtns = [...document.querySelectorAll(".button")];
+        modalBtns.forEach(function (btn) {
+            btn.onclick = function () {
+            let modal = btn.getAttribute("data-modal");
+            document.getElementById(modal).style.display = "block";
+            };
+        });
+        let closeBtns = [...document.querySelectorAll(".close")];
+        closeBtns.forEach(function (btn) {
+            btn.onclick = function () {
+            let modal = btn.closest(".modal");
+            modal.style.display = "none";
+            };
+        });
+        window.onclick = function (event) {
+            if (event.target.className === "modal") {
+            event.target.style.display = "none";
+            }
+        };
+    </script>
+</body>
+</html>

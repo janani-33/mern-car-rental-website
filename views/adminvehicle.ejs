@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>DrEam CaRs ADMIN</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .content-table{
+            border-collapse: collapse;   
+            font-size: 1em;
+            min-width: 400px;
+            border-radius: 5px 5px 0 0;
+            overflow: hidden;
+            box-shadow:0 0  20px rgba(0,0,0,0.15);
+            margin-left : 100px ;
+            margin-top: 30px;
+            width: 1300px;
+        }
+        .content-table thead tr{
+            background-color: #028482;
+            color: white;
+            text-align: left;
+        }
+        .content-table th{
+            padding: 12px 15px;
+            text-align: center;
+        }
+        .content-table td{
+            padding: 20px 15px;
+            font-size: 17px;
+            text-align: center;
+        }
+        td button{
+            padding: 5px;
+        }
+        .content-table tbody tr{
+            border-bottom: 1px solid #dddddd;
+        }
+        .content-table tbody tr:nth-of-type(even){
+            background-color: #f3f3f3;
+        }
+        .content-table tbody tr:nth-of-type(odd){
+            background-color: #aaaaaae1;
+        }
+        .content-table tbody tr:last-of-type{
+            border-bottom: 2px solid #028482;
+        }
+        .content-table thead .active-row{
+            font-weight:  bold;
+            color: #028482;
+        }
+        .active-row{
+            text-transform: capitalize;
+        }
+        .header{
+            margin-top: -695px;
+            text-align: center;
+            color: #000000;
+            text-shadow: 2px 2px 4px #fff;
+        }
+        .add a{
+            text-decoration: none;
+            color: black;
+            font-weight: bolder;   
+        }
+        .but a{
+            text-decoration: none;
+            color: black;
+        }
+        .modal{
+            display: none;
+            position: fixed;
+            z-index: 8;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        .modal-content{
+            margin: 150px auto;
+            width: 35%;
+        }
+        .modal-content-regform{
+            margin: 100px auto;
+            width: 38%;
+        }
+        .contact-form  .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .contact-form  .close:hover,
+        .contact-form .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .but:hover{
+            cursor: pointer;;
+        }
+        .formcontent{
+            position: absolute;
+            width: 50%;
+            text-align: center;
+            left: 62%;
+            top: 90px;
+        }
+        .formcontent h1{
+            font-size: 46px;
+            color: #ccffcc;
+            text-shadow: 2px 2px 4px #000000;
+            padding: 40px 0 0 0;
+        }
+        .formcontent h2{
+            font-size: 38px;
+            color: #fff;
+            text-shadow: 2px 2px 4px #000000;
+        }
+        .formcontent h3{
+            font-size: 30px;
+        }
+        .formcontent .headpar a{
+            text-decoration: none;
+            background-color: #217C7E;
+            color: #fff;
+            border:#000000;
+            border-radius: 1px;
+            margin: 10px 0 20px 0;
+            padding: 10px 20px;
+        }
+        .formcontent .headpar a:hover{
+            background-color: #258b8d;
+            color: #272626;    
+        }
+        .contact-form form{
+            text-align: center;
+            padding: 25px;
+            margin: 25px;
+            box-shadow: 0 2px 5px #f5f5f5;
+            background: #eee;
+        }
+        .contact-form form i{
+            padding: 10px 20px 10px 10px;
+        }
+        .contact-form form h2{
+            font-family: sans-serif;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .contact-form form input[type=number],
+        .contact-form form input[type=password],
+        .contact-form form input[type=file],
+        .contact-form form input[type=text]{
+            width: 300px;
+            height: 35px;
+            background: transparent;
+            color:rgb(0, 0, 0)010;
+            font-size: 15px;
+            letter-spacing: 1px;
+            margin: 20px 0 0 0px;
+            font-family: sans-serif;
+            padding: 0 10px;
+            outline: none;
+            border: 1px solid #aaa;
+        }
+        .contact-form form input[type=file]{
+            padding-top: 10px;
+        }
+        .contact-form form input:focus{
+            outline: none;
+        }
+
+        ::placeholder{
+            color:#000000;
+            font-family: Arial;
+            font-size: 14px;
+        }
+        .btnn{
+            font-size: 18px;   
+            cursor: pointer;
+            color:#fff;
+            text-decoration: none;
+            background-color: #217C7E;
+            padding: 10px 20px;
+            margin: 30px 20px 10px 20px;
+            border: #fff;
+            transition: 0.4s ease;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .btnn:hover{
+            background-color: #258b8d;
+            color: #272626;    
+        }
+        .btnn a{
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+        .form .link{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 17px;
+            padding-top: 20px;
+            text-align: center;
+            color: #fff;
+        }
+        .form .link a{
+            text-decoration: none;
+            color:#ff7200
+        }
+        .adminheader{
+            width: 100%;
+            background: url("images/carbg4.jpg");
+            background-position: center;
+            background-size: cover;
+            height: 109vh;
+            animation: infiniteScrollBg 50s linear infinite;
+        }
+        .navbar{
+            width: 100%;
+            height: auto;
+            padding: 4px 170px 8px 150px;
+            background-color: #dededeab;
+            position: fixed;
+            z-index: 1;
+        }
+        .navbar .icon{
+            width:200px;
+            float: left;
+        }
+        .add{
+            padding: 7px 10px 5px 10px;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            color:#fff;
+            transition: 0.4s ease;
+            margin: -20px 50px 10px 1230px;
+            border: 1px solid #000000;
+        }
+        .logo{
+            color: #000000b0;
+            font-size: 29px;
+            font-family: Arial;
+            float:left;
+            padding-top: 5px;
+        }
+        .menu{
+            float: left;
+        }
+        .menu ul{
+            float: left;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 20px;
+        }
+        .menu ul li{
+            list-style: none;
+            margin: 10px 0 0 80px;
+            font-size: 15px;
+            letter-spacing: 1px;
+
+        }
+        .menu ul li a{
+            text-decoration: none;
+            color: #000000;
+            font-family: Arial;
+            transition: 0.4s ease-in-out;
+        }
+        .menu ul li a::after {
+            content: '';
+            display: block;
+            background-color: #028482;
+            height: 1.5px;
+            margin: 1px 1px 0 1px;
+            transform: scaleX(0);
+            transition: transform 300ms;
+        }
+        .menu ul li a:hover::after {
+            transform: scaleX(1);
+        }
+        .menu ul li i{
+            padding: 1px;
+            color: #292929;
+        }
+        .menu ul li .active{
+            color: #028482;
+        }
+        .navbtn{
+            border:none;
+            font-size: 17px;
+            cursor: pointer;
+            background-color: #028482;
+            transition: 0.4s ease;
+            padding: 5px 10px 2px 10px;
+            margin-top: -2px;
+        }
+        .navbtn a{
+            text-decoration: none;
+        }
+        .menu ul li button a{
+            color: #fff;
+        }
+        .navbtn:hover{
+            background-color: #258b8d;
+        }
+        .navbtn a:hover{
+            color: #000000;
+            transition: 0.1s ease-in-out;
+        }
+    </style>    
+</head>
+<body>
+<div class="adminheader">
+    <div class="navbar">
+        <div class="icon">
+            <h2 class="logo">DrEam CaRs</h2>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a class="active" href="/adminvehicle">VEHICLE MANAGEMENT</a></li>
+                <li><a href="/adminusers">USERS</a></li>
+                <li><a href="/adminfeed">FEEDBACKS</a></li>                    
+                <li><a href="/adminbook">BOOKING REQUEST</a></li>
+              <li> <button class="navbtn"><a href="index.html">LOGOUT</a></button></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div>
+    <h1 class="header">CARS</h1>
+    <button class="add"><a href="#" class="button" data-modal="modalAdd">+ ADD CARS</a></button>
+    <div>
+        <div>
+            <table class="content-table">
+        <thead>
+            <tr>
+                <th>CAR ID</th>
+                <th>CAR NAME</th>
+                <th>FUEL TYPE</th>
+                <th>CAPACITY</th>
+                <th>PRICE</th>
+                <th>AVAILABLE</th>
+                <th>DELETE</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%cars.forEach((x)=>{%>
+            <tr  class="active-row">
+                <td><%= x.car_id %></td>
+                <td><%= x.car_name %></td>
+                <td><%= x.fuel_type %></td>
+                <td><%= x.capacity %></td>
+                <td><%= x.price %></td>
+                <td><%= x.available %></td>
+                <input type="hidden" name="carname">
+                <td><form action="/deletecar" method="post"><input type="hidden" name="carname" value="<%= x.car_name %>">
+                    <button type="submit" class="but">DELETE CAR</button></form></td>
+            </tr>
+            <%cars})%>
+        </tbody>
+        </table>
+        </div>
+    </div>
+    <div class="content">
+    <div id="modalAdd" class="modal">
+        <div class="modal-content">
+            <div class="contact-form">
+                <a class="close">&times;</a>
+                <form id="register"  action="/newcar" method="POST">
+                    <h2>Enter Details Of New Car</h2>
+                    <i class="fa fa-car fa-xl" aria-hidden="true"></i><input class="h" id="name" type="text" name="carname" placeholder="Enter Car Name"><br>
+                    <i class="fa-solid fa-gas-pump fa-xl"></i><input type="text" name="ftype" placeholder="Enter Fuel Type"><br>
+                    <i class="fa-solid fa-users fa-xl"></i><input type="number" name="capacity" min="1" placeholder="Enter Capacity Of Car"><br>
+                    <i class="fa-solid fa-indian-rupee-sign fa-xl"></i><input type="number" style="margin-left: 12px;" name="price" min="1" placeholder="Enter Price Of Car for One Day(in rs)"><br>
+                    <i class="fa-solid fa-images fa-xl"></i></i><input  type="file" name="image"  placeholder="Car Image"><br>
+                    <input type="submit" class="btnn" value="ADD CAR" name="addcar" >
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+<script>    
+    let modalBtns = [...document.querySelectorAll(".button")];
+    modalBtns.forEach(function (btn) {
+    btn.onclick = function () {
+        let modal = btn.getAttribute("data-modal");
+        document.getElementById(modal).style.display = "block";
+    };
+    });
+    let closeBtns = [...document.querySelectorAll(".close")];
+    closeBtns.forEach(function (btn) {
+    btn.onclick = function () {
+        let modal = btn.closest(".modal");
+        modal.style.display = "none";
+    };
+    });
+    window.onclick = function (event) {
+    if (event.target.className === "modal") {
+        event.target.style.display = "none";
+    }
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link  rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/about.css">
+    <title>DrEam CaRs</title>
+    <style>
+        body{
+            background: url("images/carbg2.jpg");
+            background-position: center;
+            background-size: cover;
+            height: 109vh;
+            width: 100%;
+        }
+        .contactInfo{
+            padding: 40px 20px 0 60px;
+            width: 80%;
+        }
+        .about-1{
+            position: relative;
+            margin: 50px 260px 50px 260px;
+            padding: 10px 10px 10px 30px;
+            border-radius: 5px;
+            background-color: #fff;
+            text-align: center;
+            display: flex;
+            font-family: 'Poppins',sans-serif;
+        }
+        .about-1 img{
+            height: 500px;
+            width: 450px;
+        }
+    </style>
+</head>
+<body>
+    <div class="aboutus-head">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">DrEam CaRs</h2>
+            </div>
+            <div class="menu">
+                <ul>
+                <li><i class="fa-solid fa-house fa-sm"></i><a href="index.html">HOME</a></li>
+                <li><i class="fa-solid fa-circle-info fa-sm active"></i><a class="active" href="aboutus.html">ABOUT</a></li>
+                <li><i class="fa fa-cog fa-sm" aria-hidden="true"></i><a href="service.html">SERVICES</a></li>     
+                <li><i class="fa fa-phone fa-sm" aria-hidden="true"></i><a href="contactus.php">CONTACT</a></li>
+                <li><i class="fa fa-sign-in" aria-hidden="true"></i><a class="button" data-modal="modalTwo" href="#">ADMIN LOGIN</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="modalTwo" class="modal">
+            <div class="modal-content">
+                <div class="contact-form">
+                    <a class="close">&times;</a>
+                    <form action="adminbook.html" method="POST">
+                        <h2>Admin Login</h2>
+                        <i class="fa fa-envelope fa-xl" aria-hidden="true"></i><input class="h" type="text" name="adid" placeholder="Enter admin userid"><br>
+                        <i class="fa-solid fa-key fa-xl"></i><input class="h" type="password" name="adpass" placeholder="Enter admin password"><br>
+                        <input type="submit" class="btnn" value="LOGIN" name="adlog" >
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="about-0"><h1>ABOUT US</h1></div>
+        <div class="about-1">
+            <div>
+                <img src="images/icon10.jpg">
+            </div>
+            <div>
+                <div class="contactInfo">
+                    <p style="font-size: 24px;color: #258b8d;margin-bottom: 10px;">Welcome to Dream Cars,</p><p style="font-size: 21px;color: #258b8d;"> your premier online car rental service.</p><br>
+                    <p style="text-align:left;margin: 20px 10px; padding: 0 20px 0 20px;line-height: 27px;border-left: 2px solid #258b8d;">At Dream Cars, we pride ourselves on offering a diverse fleet of high-quality vehicles to suit every journey. Whether you're seeking a luxury ride for a special occasion or a reliable car for daily use, we've got you covered. Our commitment to exceptional customer service, competitive pricing, and seamless online booking ensures a hassle-free experience. Discover the joy of driving with Dream Cars. Join us and embark on your next adventure with confidence and style.</p>
+                </div>
+            </div>
+        </div>
+        <script>
+            let modalBtns = [...document.querySelectorAll(".button")];
+            modalBtns.forEach(function (btn) {
+            btn.onclick = function () {
+            let modal = btn.getAttribute("data-modal");
+            document.getElementById(modal).style.display = "block";
+            };
+            });
+            let closeBtns = [...document.querySelectorAll(".close")];
+            closeBtns.forEach(function (btn) {
+            btn.onclick = function () {
+            let modal = btn.closest(".modal");
+            modal.style.display = "none";
+            };
+            });
+            window.onclick = function (event) {
+            if (event.target.className === "modal") {
+            event.target.style.display = "none";
+            }
+            };
+        </script>
+        <footer>
+            <div class="subaddr"><b>DrEam CaRs - Car Renting Agency</b><br><br>
+            <p>No. 70AMD COMPLEX. 100FEET. GANDHIPURAM Coimbatore,<br> 12, Coimbatore, Tamil Nadu - 641012.</p>
+            </div>
+            <div class="sub">
+                <div class="divider"></div>
+                <div class="footer-icon">
+                    <ul>
+                        <li><a href="https://www.facebook.com/ksrct1994"><i class="fa-brands fa-facebook"></i></a></li>
+                        <li><a href="https://www.instagram.com/ksrct1994/"><i class="fa-brands fa-instagram"></i></a> </li>
+                        <li><a href="https://twitter.com/ksrct1994"><i class="fa-brands fa-twitter"></i></a></li>
+                        <li><a href="https://www.youtube.com/channel/UCs1f7Zd-QG0tsX-JHJYtF-g"><i class="fa-brands fa-youtube"></i></a></li>                   
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

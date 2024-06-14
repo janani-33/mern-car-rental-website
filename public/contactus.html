@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link  rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cont.css">
+    <title>DrEam CaRs</title>
+    <style>
+        body{
+        background: url("images/carbg2.jpg");
+        background-position: center;
+        background-size: cover;
+        height: 109vh;
+        width: 100%;
+        }
+        .contactus-head{
+            background-image: -webkit-linear-gradient(left, #bdc5cee2,#5694d1b1,#1f66acb5, #0073e6bb);
+            background-position: center;
+            background-size: cover;
+            position: absolute;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="contactus-head">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">DrEam CaRs</h2>
+            </div>
+            <div class="menu">
+                <ul>
+                <li><i class="fa-solid fa-house fa-sm"></i><a href="index.html">HOME</a></li>
+                <li><i class="fa-solid fa-circle-info fa-sm"></i><a href="aboutus.html">ABOUT</a></li>
+                <li><i class="fa fa-cog fa-sm" aria-hidden="true"></i><a href="service.html">SERVICES</a></li>     
+                <li><i class="fa fa-phone fa-sm active" aria-hidden="true"></i><a class="active" href="contactus.html">CONTACT</a></li>
+                <li><i class="fa fa-sign-in" aria-hidden="true"></i><a class="button" data-modal="modalTwo" href="#">ADMIN LOGIN</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="Feedbackmodal" class="modal">
+            <div class="modal-content">
+                <div class="contact-form">
+                    <a class="close">&times;</a>
+                    <form id="reused_form" action="cardetails.php" method="POST">
+                        <h2><i style="padding: 0 10px 0 0;" class="fa-solid fa-comments"></i>Feedback</h2>
+                        <input class="h" type="text" placeholder="Enter Name"><br>
+                        <textarea rows="10" placeholder="Enter your message"></textarea><br>
+                        <input type="submit" class="btnn" value="SEND" name="adlog" >
+                    </form>
+                </div>
+            </div>
+        </div>
+        <section class="contact">
+            <div class="contact-header"><i class="fa-solid fa-handshake-simple fa-lg"></i>CONTACT US</div>
+            <div class="container">
+                <div class="contactInfo">
+                    <div class="box">
+                        <div class="icon"><i class="fas fa-map-marker" aria-hidden="true"></i></div>
+                        <div style="margin-top: -15px;" class="text">
+                            <h3>Address</h3>
+                            <p>No.70AMD COMPLEX,GANDHIPURAM Coimbatore,Tamil Nadu.</p>
+                        </div> 
+                    </div>
+                    <div class="box">
+                        <div class="icon"><i class="fas fa-phone-alt" aria-hidden="true"></i></div>
+                        <div class="text">
+                            <h3>Phone</h3>
+                            <p>507-475-6094</p>
+                    </div>
+                    </div>
+                    <div class="box">
+                        <div class="icon"><i class="fas fa-envelope" aria-hidden="true"></i></div>
+                        <div class="text">
+                            <h3>Email</h3>
+                            <p>contactuscars@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contactForm">
+                    <form>
+                        <h2>Send Message</h2>
+                        <div class="inputBox">
+                            <input type="text" name="" required="required">
+                            <span>Full Name</span>
+                        </div>
+                        <div class="inputBox">
+                            <input type="text" name="email" required="required">
+                            <span>Email</span>
+                        </div>
+                        <div class="inputBox">
+                            <input type="tel" name="" required="required">
+                            <span>Phone</span>
+                        </div>
+                        <div class="inputBox">
+                            <textarea required="required" name="msg"></textarea>
+                            <span>Type your Message...</span>
+                        </div>
+                        <div style="margin-top: 30px;" class="inputBox">
+                            <input type="submit" name="sendfeed" value="Send">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <script>
+            let modalBtns = [...document.querySelectorAll(".button")];
+            modalBtns.forEach(function (btn) {
+            btn.onclick = function () {
+            let modal = btn.getAttribute("data-modal");
+            document.getElementById(modal).style.display = "block";
+            };
+            });
+            let closeBtns = [...document.querySelectorAll(".close")];
+            closeBtns.forEach(function (btn) {
+            btn.onclick = function () {
+            let modal = btn.closest(".modal");
+            modal.style.display = "none";
+            };
+            });
+            window.onclick = function (event) {
+            if (event.target.className === "modal") {
+            event.target.style.display = "none";
+            }
+            };
+        </script>
+        <footer>
+            <div class="subaddr"><b>DrEam CaRs - Car Renting Agency</b><br><br>
+                <p>No. 70AMD COMPLEX. 100FEET. GANDHIPURAM Coimbatore,<br> 12, Coimbatore, Tamil Nadu - 641012.</p>
+            </div>
+            <div class="sub">
+                <div class="divider"></div>
+                <div class="footer-icon">
+                    <ul>
+                        <li><a href="https://www.facebook.com/ksrct1994"><i class="fa-brands fa-facebook"></i></a></li>
+                        <li><a href="https://www.instagram.com/ksrct1994/"><i class="fa-brands fa-instagram"></i></a> </li>
+                        <li><a href="https://twitter.com/ksrct1994"><i class="fa-brands fa-twitter"></i></a></li>
+                        <li><a href="https://www.youtube.com/channel/UCs1f7Zd-QG0tsX-JHJYtF-g"><i class="fa-brands fa-youtube"></i></a></li>                   
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

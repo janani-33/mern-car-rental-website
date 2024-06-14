@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link  rel="stylesheet" href="css/style.css">
+    <title>DrEam CaRs</title>
+    <style>
+        body{
+        background: url("images/carbg2.jpg");
+        background-position: center;
+        background-size: cover;
+        height: 109vh;
+        width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="aboutus-head">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">DrEam CaRs</h2>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><i class="fa-solid fa-house fa-sm"></i><a href="index.html">HOME</a></li>
+                    <li><i class="fa-solid fa-circle-info fa-sm"></i><a href="aboutus.html">ABOUT</a></li>
+                    <li><i class="fa fa-cog fa-sm  active" aria-hidden="true"></i><a class="active" href="service.html">SERVICES</a></li>     
+                    <li><i class="fa fa-phone fa-sm" aria-hidden="true"></i><a href="contactus.html">CONTACT</a></li>
+                    <li><i class="fa fa-sign-in" aria-hidden="true"></i><a class="button" data-modal="modalTwo" href="#">ADMIN LOGIN</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="modalTwo" class="modal">
+            <div class="modal-content">
+                <div class="contact-form">
+                    <a class="close">&times;</a>
+                    <form method="POST" action="adminbook.html">
+                        <h2>Admin Login</h2>
+                        <i class="fa fa-envelope fa-xl" aria-hidden="true"></i><input class="h" type="text" name="adid" placeholder="Enter admin userid"><br>
+                        <i class="fa-solid fa-key fa-xl"></i><input class="h" type="password" name="adpass" placeholder="Enter admin password"><br>
+                        <input type="submit" class="btnn" value="LOGIN" name="adlog" >
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="about-0"><h1>OUR SERVICES</h1></div>
+        <div class="about-1">
+            <div class="imgcollection">
+                <div><img src="images/icon1.jpg"><p>We value your feedback</p></div>
+                <div><img src="images/icon2.jpg"><p>Full car repair and checkup</p></div>
+                <div><img src="images/icon3.jpg"><p>Rent your dream cars</p></div>
+            </div>
+            <div class="imgcollection">
+                <div><img src="images/icon4.jpg"><p>Fuel services are provided</p></div>
+                <div><img src="images/icon5.jpg"><p>Car wash services</p></div>
+                <div><img src="images/icon6.jpg"><p>Charging systems checkup</p></div>
+            </div>
+            <div class="imgcollection">
+                <div><img src="images/icon7.jpg"><p>Car Polish if required</p></div>
+                <div><img src="images/icon8.jpg"><p>24hr services</p></div>
+                <div><img src="images/icon9.jpg"><p>High quality maintanence</p></div>
+            </div>
+        </div>
+        <script>
+            let modalBtns = [...document.querySelectorAll(".button")];
+            modalBtns.forEach(function (btn) {
+                btn.onclick = function () {
+                let modal = btn.getAttribute("data-modal");
+                document.getElementById(modal).style.display = "block";
+                };
+            });
+            let closeBtns = [...document.querySelectorAll(".close")];
+            closeBtns.forEach(function (btn) {
+                btn.onclick = function () {
+                let modal = btn.closest(".modal");
+                modal.style.display = "none";
+                };
+            });
+            window.onclick = function (event) {
+                if (event.target.className === "modal") {
+                event.target.style.display = "none";
+                }
+            };
+        </script>
+        <footer>
+            <div class="subaddr"><b>DrEam CaRs - Car Renting Agency</b><br><br>
+            <p>No. 70AMD COMPLEX. 100FEET. GANDHIPURAM Coimbatore,<br> 12, Coimbatore, Tamil Nadu - 641012.</p>
+            </div>
+            <div class="sub">
+                <div class="divider"></div>
+                <div class="footer-icon">
+                    <ul>
+                        <li><a href="https://www.facebook.com/ksrct1994"><i class="fa-brands fa-facebook"></i></a></li>
+                        <li><a href="https://www.instagram.com/ksrct1994/"><i class="fa-brands fa-instagram"></i></a> </li>
+                        <li><a href="https://twitter.com/ksrct1994"><i class="fa-brands fa-twitter"></i></a></li>
+                        <li><a href="https://www.youtube.com/channel/UCs1f7Zd-QG0tsX-JHJYtF-g"><i class="fa-brands fa-youtube"></i></a></li>                   
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
